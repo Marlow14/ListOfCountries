@@ -18,7 +18,7 @@ public class CountryAppDisplay {
 		
 		ArrayList<String> listOfCountries = new ArrayList<>();
 		
-		Path myNewPath =  Paths.get("\\Users\\admin\\newWorkspace\\DayElevenAssignment\\src\\com\\tiy\\listOfCountries\\countryList");
+		Path myNewPath =  Paths.get("\\Users\\admin\\newWorkspace\\DayElevenAssignment\\src\\com\\tiy\\listOfCountries\\countryList.txt");
 		
 		File aNewFile =  myNewPath.toFile();
 		
@@ -31,7 +31,7 @@ public class CountryAppDisplay {
 				listOfCountries.add(countriesList);
 				
 			}
-			
+			in.close();
 		}catch(IOException e){
 			e.printStackTrace();
 		}

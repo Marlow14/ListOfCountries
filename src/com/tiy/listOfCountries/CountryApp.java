@@ -67,7 +67,7 @@ public class CountryApp {
 		String aNewCountry = null;
 
 		Path myNewPath = Paths
-				.get("\\Users\\admin\\newWorkspace\\DayElevenAssignment\\src\\com\\tiy\\listOfCountries\\countryList");
+				.get("\\Users\\admin\\newWorkspace\\DayElevenAssignment\\src\\com\\tiy\\listOfCountries\\countryList.txt");
 
 		File aNewFile = myNewPath.toFile();
 
@@ -80,7 +80,7 @@ public class CountryApp {
 			out.println(keyboard.nextLine());
 
 			System.out.println(aNewCountry + " was just added to the your list.");
-
+			out.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,7 +93,7 @@ public class CountryApp {
 		ArrayList<String> listOfCountries = new ArrayList<>();
 
 		Path myNewPath = Paths
-				.get("\\Users\\admin\\newWorkspace\\DayElevenAssignment\\src\\com\\tiy\\listOfCountries\\countryList");
+				.get("\\Users\\admin\\newWorkspace\\DayElevenAssignment\\src\\com\\tiy\\listOfCountries\\countryList.txt");
 
 		File aNewFile = myNewPath.toFile();
 
@@ -106,7 +106,7 @@ public class CountryApp {
 				listOfCountries.add(countriesList);
 
 			}
-
+			in.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -115,14 +115,17 @@ public class CountryApp {
 			System.out.println(listOfCountries.get(i));
 		}
 
-		System.out.println("Enter the index of the country you wish to remove from the list:");
+		System.out.println("Enter the line index starting at zero" + "\n\tof the country you wish to remove from the list:");
 
 		int removeACountry = keyboard.nextInt();
 
 		listOfCountries.remove(removeACountry);
 
 		try (PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter(aNewFile)))) {
-			out.println(listOfCountries);
+			for (int i = 0; i < listOfCountries.size(); i++) {
+				out.println(listOfCountries.get(i));
+			}
+			out.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
